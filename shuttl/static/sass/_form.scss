@@ -1,0 +1,101 @@
+@mixin form {
+    text-align: center;
+    margin: 4em 0 4em 0;
+    border-radius: 3px;
+    background-color: $white;
+    @include flex-box();
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+
+    form{
+      @include flex-box();
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        font-size: 1.75em;
+      }
+      p{
+        margin: 0 0 1em 0;
+        input[type="text"], input[type="password"], input[type="email"] {
+          border: 2px solid $lightgrey;
+          border-radius: 4px;
+          font-size: 1em;
+          padding: .5em .75em .5em .75em;
+          width: 15em;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+      .form-button-container{
+        background-color: $darkgrey;
+        border-radius: 3px;
+        width: 10em;
+        margin: 1em 0 1em 0;
+        padding: .25em;
+        input[type="submit"] {
+          width: 100%;
+          height: 2em;
+          font-size: 1.25em;
+          background-color: inherit;
+          border: none;
+          color: $white;
+          border-radius: 4px;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+    }
+    .form-footer {
+      height: 5em;
+    }
+}
+
+.full-wrap{
+  color: $darkgrey;
+  .form-container {
+    @include flex-box();
+    justify-content: center;
+    background-color: $darkblue;
+    height: 100vh;
+    .login-form {
+      @include form();
+      height: 25em;
+      width: 20em;
+    }
+    .signup-form {
+      @include form();
+      height: 35em;
+      width: 25em;
+    }
+    .validate-form {
+      @include form();
+      height: 22.5em;
+      width: 20em;
+    }
+    .form-link{
+      a{
+        color: $lightgreen;
+        text-decoration: none;
+      }
+    }
+    .check-email {
+      text-align: center;
+      margin: 4em 0 4em 0;
+      border-radius: 3px;
+      background-color: $white;
+      @include flex-box();
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 10em;
+      width: 30em;
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+}

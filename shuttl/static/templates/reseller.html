@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<form method="POST" action="{{ url_for('shuttl.createReseller') }}">
+	{{ form.csrf_token }}
+	<p>
+		{{ form.name.label }}<br>
+		{{ form.name }}
+	</p>
+	<p>
+		{{ form.url.label }}<br>
+		{{ form.url }}
+	</p>
+	<p>
+		{{ form.fullName.label }}<br>
+		{{ form.fullName }}
+	</p>
+	<p>
+		{{ form.username.label }}<br>
+		{{ form.username }}
+	</p>
+	<p>
+		{{ form.email.label }}<br>
+		{{ form.email }}
+	</p>
+	<p>
+		{{ form.password.label }}<br>
+		{{ form.password }}
+	</p>
+{# <p>
+		{% for error in form.recaptcha.errors %}
+			{{ error }}
+		{% endfor %}
+		{{ form.recaptcha }}
+	</p> #}
+	<p>
+		<input type="submit" value="Sign Up">
+	</p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+	{% block content %}
+    {% endblock %}
+
+	<footer>
+       	<a href="{{ base_url }}">Your Shuttl Home</a> |
+        <a href="{{ base_url }}/settings">Your Shuttl Settings</a> |
+        <a href="mailto:support@shuttl.io">Support</a>
+    </footer>
+</body>
+</html>

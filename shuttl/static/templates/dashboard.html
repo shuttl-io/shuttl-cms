@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='node_modules/tether-shepherd/dist/css/shepherd-theme-arrows.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='node_modules/tether-shepherd/dist/css/shepherd-theme-default.css')}}"/>
+{% endblock %}
+
+{% block innerNav %}
+   <div class="nav-item">
+     <a href="{{ url_for('shuttlOrgs.logout', organization=request.organization.sys_name) }}">Logout</a>
+   </div>
+{% endblock %}
+{%block content%}
+
+    <div class="main-content">
+        <h2>Your Websites</h2>
+        <div class="websites">
+            <shuttl-websites></shuttl-websites>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block bottom_js %}
+    <script type="application/javascript" src="{{ url_for('static', filename='node_modules/tether-shepherd/dist/js/tether.js') }}"></script>
+    <script type="application/javascript" src="{{ url_for('static', filename='node_modules/tether-shepherd/dist/js/shepherd.min.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+@mixin prefix($property, $content){
+        -moz-#{$property}: $content;
+        -webkit-#{$property}: $content;
+        -ms-#{$property}: $content;
+        -o-#{$property}: $content;
+        #{$property}: $content;
+}
+
+@mixin placeholder-color{
+  &::-webkit-input-placeholder {@content;}
+  &:-moz-placeholder {@content;}
+  &::-moz-placeholder {@content;}
+  &:-ms-input-placeholder {@content;}
+}
+
+@mixin flex-box{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}

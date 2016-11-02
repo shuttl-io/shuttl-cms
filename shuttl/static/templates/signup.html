@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block pageTitle %}
+  Shuttl - Sign Up
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{%block content%}
+
+<div class="form-container">
+	<div class="signup-form">
+		<form method="POST" action="{{ url_for('shuttlOrgs.signup', organization=request.organization.sys_name) }}">
+			{{ form.csrf_token }}
+			<h3>Give us your info to sign up!</h3>
+			<p>
+				{{ form.firstname }}
+			</p>
+			<p>
+				{{ form.lastname }}
+			</p>
+			<p>
+				{{ form.username }}
+			</p>
+			<p>
+				{{ form.email }}
+			</p>
+			<p>
+				{{ form.password }}
+			</p>
+			<p>
+			<div class="form-button-container">
+				<input type="submit" value="Sign Up">
+			</div>
+		</form>
+    <div class="form-footer">
+		  <p class="form-link">Already have an account? <a href="{{ url_for('shuttlOrgs.login', organization=request.organization.sys_name) }}">Log in!</a></p>
+          <p class="form-link"><a href="{{ url_for('shuttlOrgs.githubLogin', organization=request.organization.sys_name ) }}">GitHub Sign Up</a></p>
+      {% if error %}
+        <p>{{ error }}</p>
+      {% endif %}
+    </div>
+	</div>
+</div>
+{% block footer %}
+{% endblock %}
+{% endblock %}

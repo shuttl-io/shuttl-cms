@@ -1,0 +1,45 @@
+{
+  "name": "shuttl",
+  "version": "1.0.0",
+  "description": "Shuttl is a web management platform",
+  "main": "index.js",
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e js/lib/main.js -o js/main.js",
+    "watchify2": "watchify -vd -p browserify -e js/lib/internalMain.js -o js/internalMain.js ",
+    "build": "cross-env NODE_ENV=production browserify js/lib/main.js | uglifyjs -c warnings=false -m > js/main.js",
+    "buildInternal": "cross-env NODE_ENV=production browserify js/lib/internalMain.js | uglifyjs -c warnings=false -m > js/internalMain.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shuttl, LLC",
+  "license": "ISC",
+  "dependencies": {
+    "ace-builds": "^1.2.2",
+    "jquery": "^2.2.3",
+    "tether-shepherd": "^1.8.0",
+    "tinymce": "^4.4.0",
+    "vue": "^1.0.24",
+    "vue-resource": "^0.8.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^6.0.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "browserify-hmr": "^0.3.1",
+    "cross-env": "^1.0.6",
+    "node-sass": "^3.8.0",
+    "qunitjs": "^1.23.1",
+    "uglify-js": "^2.5.0",
+    "vueify": "^8.5.2",
+    "watchify": "^3.4.0"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
+}

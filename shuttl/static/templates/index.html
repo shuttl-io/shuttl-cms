@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<div id="content" class="main-content">
+    <section class="shuttle-main">
+        <h3>Backend-less CMS System</h3>
+        <p class="demo-button">
+          <a href="{{ url_for('shuttlOrgs.login', organization='demo')}}">Check out our demo</a>
+        </p>
+    </section>
+    <section class="shuttle-about">
+        <h2>Why Shuttl?</h2>
+        <div class="about-items">
+            <div class="section-title">
+                <h3>Easy to Use</h3>
+                <p>Shuttl was designed around the user, making it a fluid and easy experience.</p>
+            </div>
+            <div class="section-title">
+                <h3>Freedom</h3>
+                <p>You can deploy whenever and wherever you like.</p>
+                <p>DigitalOcean or Amazon Web Services, GitHub Pages or GoDaddy, it's all up to you.</p>
+            </div>
+            <div class="section-title">
+                <h3>Fast</h3>
+                <p>Websites aren't hard and they also should be easy to maintain so why have multiple steps when creating them?</p>
+            </div>
+            <div class="section-title">
+                <h3>Secure</h3>
+                <p>Security is not something to be taken lightly and we make sure you never have to worry about it. </p>
+            </div>
+        </div>
+    </section>
+    <section class="shuttle-contact">
+        <div class="section-title">
+            <h1>Want to try our demo?</h1>
+            <p class="demo-button">
+              <a href="{{ url_for('shuttlOrgs.login', organization='demo')}}">See it here!</a>
+            </p>
+            <h2>Have questions?</h2>
+            <p>Feel free to email us at <a href="mailto:hello@shuttl.io">hello@shuttl.io</a></p>
+            <div class="mc_embed_signup">
+                <form action="//shuttl.us13.list-manage.com/subscribe/post?u=29eec081828629fffd977e88f&amp;id=2892f34576" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>Subscribe to our mailing list</h2>
+                <div class="mc-field-group">
+                    <input type="email" value="" name="EMAIL" class="required email" placeholder="Email" id="mce-EMAIL">
+                </div>
+                <div class="mc-field-group">
+                    <input type="text" value="" name="FNAME" class="" placeholder="First Name" id="mce-FNAME">
+                </div>
+                <div class="mc-field-group">
+                    <input type="text" value="" name="LNAME" class="" placeholder="Last Name" id="mce-LNAME">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_29eec081828629fffd977e88f_2892f34576" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="mailchimp-button"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        </div>
+    </section>
+</div>
+{% endblock %}

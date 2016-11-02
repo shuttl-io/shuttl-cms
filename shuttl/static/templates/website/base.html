@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <script type="text/javascript">
+        window.current_dir = "{{ current_dir }}";
+        window.page_id = "{{ page.id if page else '' }}";
+        window.website_id = "{{ website.id }}";
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='node_modules/tether-shepherd/dist/css/shepherd-theme-arrows.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='node_modules/tether-shepherd/dist/css/shepherd-theme-default.css')}}"/>
+
+    {% block websiteHead %}
+
+    {% endblock %}
+{% endblock %}
+
+
+
+{% block header %}
+    <header class="internal">
+        <div class="nav-right">
+            <nav>
+                {% block innerNav %}
+                   <shuttl-internalNav></shuttl-internalNav>
+                {% endblock %}
+            </nav>
+        </div>
+        <div class="nav-left">
+          <nav>
+           <select id="websiteObjects">
+               {% for item in  dropDownItems %}
+                    <option value="{{ item.url }}">{{ item.name }}</option>
+               {% endfor %}
+           </select>
+          </nav>
+        </div>
+    </header>
+{% endblock %}
+
+{% block pageTitle %}
+    {% if page and page is not none%}
+        {{ page.name }} - Edit
+    {% else %}
+        {{ website.name }} - Dashboard
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block bottom_js %}
+    <script type="application/javascript" src="{{ url_for('static', filename='node_modules/tether-shepherd/dist/js/tether.js') }}"></script>
+    <script type="application/javascript" src="{{ url_for('static', filename='node_modules/tether-shepherd/dist/js/shepherd.min.js') }}"></script>
+{% endblock %}

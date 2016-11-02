@@ -1,0 +1,150 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.login-signup-wrap {
+  height: 100vh;
+}
+
+.full-wrap {
+    min-height: 100vh;
+    height: 100%;
+    .main-content {
+        .shuttle-main {
+            color: $white;
+            background-color: $darkblue;
+            margin-bottom: 0;
+            padding: 3em 0;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            @include phone() {
+                padding-top: 1em;
+            }
+            img {
+                width: 40em;
+                height: auto;
+                @include phone() {
+                    width: 20em;
+                }
+            }
+            h3 {
+                font-size: 2.5em;
+                @include phone() {
+                    font-size: 1.5em;
+                }
+            }
+            p {
+                font-size: 1.5em;
+                margin-top: 1em;
+                margin-bottom: 2em;
+                &.demo-button {
+                  background-color: $lightgreen;
+                  border-radius: 3px;
+                  width: 12em;
+                  margin: 1em auto;
+                  a {
+                    display: block;
+                    padding: 0.25em;
+                  }
+                }
+
+                a{
+                  text-decoration: none;
+                  color: $white;
+                }
+            }
+        }
+        .shuttle-about {
+            margin: 0;
+            padding: 2em 0;
+            background-color: $white;
+            color: $darkblue;
+            min-height: 25em;
+            h2 {
+                text-align: center;
+                font-size: 2.5em;
+                @include desktop() {
+                    margin-bottom: 0;
+                }
+            }
+            .about-items {
+                display: -webkit-flex;
+                display: flex;
+                align-items: center;
+                -webkit-flex-direction: column;
+                flex-direction: column;
+                @include desktop() {
+                    justify-content: space-around;
+                    -webkit-flex-direction: row;
+                    flex-direction: row;
+                    align-items: flex-start;
+                }
+                .section-title {
+                    flex: 1;
+                    text-align: center;
+                    margin: 4em 2em;
+                    max-width: 20em;
+                    @include phone() {
+                        margin-top: 0;
+                        margin-bottom: 1em;
+                    }
+                    h3 {
+                        font-size: 2em;
+                        text-align: center;
+                    }
+                    p {
+                        font-size: 1.5em;
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+        .shuttle-contact {
+            margin: 0;
+            padding: 2em 0;
+            color: $white;
+            background-color: $darkblue;
+            min-height: 25em;
+            display: -webkit-flex;
+            display: flex;
+            @include phone() {
+                display: block;
+            }
+            h1 {
+                font-size: 2.5em;
+                text-align: center;
+            }
+            .section-title {
+                flex: 1;
+                text-align: center;
+                margin-left: 5vw;
+                margin-right: 5vw;
+                p {
+                    font-size: 1.5em;
+                    margin-top: 1em;
+                    margin-bottom: 2em;
+                    &.demo-button {
+                      background-color: $lightgreen;
+                      border-radius: 3px;
+                      width: 10em;
+                      margin: 1em auto;
+                      a {
+                        display: block;
+                        padding: 0.25em;
+                      }
+                    }
+
+                    a{
+                      text-decoration: none;
+                      color: $white;
+                    }
+                }
+            }
+        }
+    }
+    .website-dashboard {
+      .title {
+        text-align: center;
+      }
+    }
+}

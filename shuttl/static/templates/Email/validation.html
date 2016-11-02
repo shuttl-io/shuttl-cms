@@ -1,0 +1,26 @@
+{% extends "Email/base.html" %}
+
+{% block content %}
+
+	<div style="width: 90vw; margin-left: auto; margin-right: auto;">
+		<h1 style="text-align: center;">Welcome to Shuttl!</h1>
+		<div>
+            <h2>Hello {{ user.firstName }}!</h2>
+			<p>
+                Thank you for choosing to use Shuttl! We're excited to show you our demo.
+            </p>
+            <p>
+				Click on the following link to verify your account and get started:
+            </p>
+            <p style="text-align: center"><a href="{{ url }}">{{ url }}</a></p>
+            <p>
+                If you have any questions feel free to contact us at <a href="mailto:help@shuttl.io">help@shuttl.io</a>
+            </p>
+            <p>
+                Thank you,<br/>
+                - The Shuttl Team
+            </p>
+		</div>
+    </div>
+
+{% endblock %}

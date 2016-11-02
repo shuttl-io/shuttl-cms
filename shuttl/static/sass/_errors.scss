@@ -1,0 +1,25 @@
+.err {
+	&.full {
+		width: 100vw;
+		height: calc(100vh - 4em);
+		margin-top: -21px;
+
+		div {
+			position: relative;
+		    top: 50%;
+		    left: 50%;
+		    transform: translateX(-50%) translateY(-50%);
+		}
+
+		h1, h2, h3 {
+			text-align: center;
+		}
+	}
+
+	&.e404 {
+		color: white;
+		background: url("../img/404.svg") no-repeat;
+    	background-position: center;
+    	background-size: 100% 100%;
+	}
+}

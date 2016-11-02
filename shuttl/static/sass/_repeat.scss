@@ -1,0 +1,38 @@
+.multicontent.editiable {
+    position: relative;
+    .add {
+        left: 0;
+        span{
+            background: url("../img/plus.png") no-repeat;
+        }
+        
+    }
+    .remove {
+        left: 60px;
+        span {
+            background: url("../img/minus.png") no-repeat;
+        }
+    }
+    .hover-show {
+        border: none;
+        top: -25px;
+        width: 50px;
+        height: 50px;
+        text-indent:-9999px;
+        position: absolute;
+        cursor: pointer;
+        display: none;
+        span {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+        }
+    }
+
+    &:hover {
+        .hover-show {
+            display: inline-block;
+        }
+    }
+}

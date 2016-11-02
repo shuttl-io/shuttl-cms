@@ -1,0 +1,56 @@
+@function join($sep, $args...) {
+    $firstElem: nth($args, 1);
+    $joined_str: "#{$firstElem}";
+
+    @for $i from 2 through length($args) {
+        $elem: nth($args, $i);
+        $joined_str : "#{$joined_str} #{$sep} #{elem}";
+    }
+
+    $joined_str: "#{$joined_str};";
+    @return $joined_str;
+}
+
+@function min($value, $dimension: "width") {
+    @return "(min-#{$dimension}: #{$value})";
+}
+
+@function max($value, $dimension: "width") {
+    @return "(max-#{$dimension}: #{$value})";
+}
+
+@function min_max($min, $max, $dimension: "width") {
+    $min_max: join("and", min($min, $dimension), max($max, $dimension));
+    @return "(#{$min_max})";
+}
+
+@function orientation($landscape) {
+    @if $landscape == true {
+        @return "orientation=landscape";
+    }
+    @else {
+        @return "orientation=portrait";
+    }
+}
+
+@mixin phone-landscape() {
+    $mediaQuery: join("and", orientation(true), max($phone-break));
+    @media #{$mediaQuery} {
+        @content;
+    }
+}
+
+@mixin phone() {
+    $mediaQuery: max($phone-break);
+    @media #{$mediaQuery} {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    $mediaQuery: min($phone-break+1);
+    @media #{$mediaQuery} {
+        @content;
+    }
+
+}

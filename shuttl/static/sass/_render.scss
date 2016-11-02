@@ -1,0 +1,73 @@
+.cellContainer {
+    display: flex;
+    display: -webkit-flex;
+    width: 100vw;
+    height: calc(100vh - 4em);
+    position: relative;
+    .cell {
+        width: 100%;
+        height: 100%;
+        &.map {
+            width: 15%;
+            height: 100%;
+            border-right: 1px solid black;
+            padding-top: 1em;
+            padding-left: 0.5em;
+            resize: horizontal;
+            overflow-x: auto;
+            background-color: $darkgrey;
+            a {
+                text-decoration: none;
+                padding-left: 1.75em;
+                color: $white;
+                z-index: 1000;
+                position: relative;
+                &:visited {
+                    color: $white;
+                }
+                &.image {
+                    background: url("../img/fileIcons/image.svg") no-repeat;
+                }
+                &.css {
+                    background: url("../img/fileIcons/css.svg") no-repeat;
+                }
+                &.twig {
+                    background: url("../img/fileIcons/html.svg") no-repeat;
+                }
+                &.js {
+                    background: url("../img/fileIcons/javascript.svg") no-repeat;
+                }
+                &.dir {
+                    background: url("../img/fileIcons/folder.svg") no-repeat;
+                }
+            }
+            ul {
+                padding-left: 1.5em;
+                margin-top: 0;
+                li {
+                    list-style: none;
+                    position: relative;
+                    div {
+                        &.highlighted {
+                            background-color: lighten($darkgrey, 10%);
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        &.render {
+            iframe {
+                margin: 0;
+                padding: 0;
+                border: none;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

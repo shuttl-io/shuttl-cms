@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block pageTitle %}
+  Shuttl - Log In
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{%block content%}
+  <div class="form-container">
+    <div class="login-form">
+       <form action="{{ url_for('shuttlOrgs.login', organization=request.organization.sys_name ) }}" method='POST' class='hidden'>
+          <h3>Log in</h3>
+          {{ form.csrf_token }}
+        	<p>
+      			{{ form.email }}
+      		</p>
+      		<p>
+      			{{ form.password }}
+      		</p>
+          <div class="form-button-container">
+            <input type="submit" value="Log In">
+          </div>
+        </form>
+        <div class="form-footer">
+          <p class="form-link">Don't have an account? <a href="{{ url_for('shuttlOrgs.signup', organization=request.organization.sys_name) }}">Join us!</a></p>
+          <p class="form-link">Login with <a href="{{ url_for('shuttlOrgs.githubLogin', organization=request.organization.sys_name ) }}">GitHub</a></p>
+          {% if error %}
+            <p>{{ error }}</p>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

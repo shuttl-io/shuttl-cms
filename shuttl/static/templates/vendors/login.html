@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%block content%}
+	{% if error==1 %}
+		<span class="error">User name or password do not match</span>
+	{% endif %}
+    <form action='{{ url_for("shuttl.login") }}' method='POST'>
+    	{{ form.csrf_token }}
+    	<p>
+			{{ form.username.label }}<br>
+			{{ form.username }}
+		</p>
+		<p>
+			{{ form.password.label }}<br>
+			{{ form.password }}
+		</p>
+		<p>
+			<input type="submit" value="Log In">
+		</p>
+	</form>
+{% endblock %}

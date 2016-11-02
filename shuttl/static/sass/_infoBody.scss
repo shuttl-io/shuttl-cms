@@ -1,0 +1,97 @@
+@mixin flex-box-includes {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+
+  @include desktop() {
+    justify-content: space-around;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+@mixin list-styling {
+  @include flex-box-includes;
+  -webkit-padding-start: 0;
+
+  li{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    list-style: none;
+    @include desktop() {
+      width: 15em;
+      padding: 0 1em;
+    }
+    .content{
+      font-size: 1em;
+    }
+  }
+}
+
+.info-content{
+  width: 100%;
+  color: $darkgrey;
+  .alternatives{
+    padding: 3em;
+    .section-title{
+      width: 80vw;
+      h2{
+        font-size: 3em;
+      }
+      p{
+        font-size: 1.5em;
+        padding-bottom: 1em;
+      }
+    }
+    .reasons{
+      @include list-styling;
+    }
+  }
+  .difference{
+    background-color: $darkgrey;
+    color: $lightgrey;
+    padding: 3em;
+
+    @include flex-box-includes;
+
+    h2{
+      font-size: 2em;
+      width: 100%;
+    }
+    p{
+      font-size: 1.5em;
+      @include desktop() {
+          padding: 0 .5em;
+          width: 15em;
+      }
+    }
+  }
+  .work{
+    padding: 3em;
+    .section-title{
+      width: 80vw;
+      h2{
+        font-size: 3em;
+      }
+      p{
+        font-size: 1.5em;
+        padding-bottom: 1em;
+      }
+    }
+    .developers{
+      h3{
+        font-size: 2em;
+      }
+      .reasons{
+        @include list-styling;
+      }
+    }
+    .managers{
+      @extend .developers;
+    }
+  }
+}

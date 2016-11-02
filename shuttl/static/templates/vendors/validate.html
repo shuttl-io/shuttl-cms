@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{%block content%}
+<div class="form-container">
+	<div class="validate-form">
+    <form action='{{ url_for("shuttlOrgs.validate", token=token, organization=request.organization.sys_name) }}' method='POST'>
+			<h3>Please sign in below to verify your account.</h3>
+    	{{ form.csrf_token }}
+    	<p>
+			{{ form.email }}
+		</p>
+		<p>
+			{{ form.password }}
+		</p>
+		<div class="form-button-container">
+			<input type="submit" value="Log In">
+		</div>
+	</form>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

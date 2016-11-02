@@ -1,0 +1,22 @@
+footer#contact{
+  font-family: 'Open Sans', sans-serif;
+  background-color: $darkgrey;
+  color: $lightgrey;
+  text-align: center;
+  height: 11em;
+  .footer-logo{
+    padding: 1em 0 1em 1em;
+    h1{
+      font-size: 1.5em;
+      margin-bottom: 0;
+    }
+    p{
+      margin: .5em 0;
+    }
+    a{
+      display: inline-block;
+      color: $lightgrey;
+      text-decoration: none;
+    }
+  }
+}

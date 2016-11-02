@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+{% if error %}
+    <h2>{{ error }} already exists</h2>
+{% endif %}
+
+<form action='/create' method='POST' class='hidden'>
+    <h3>Select a team name </h3>
+    <input class="creation_input" type="text" placeholder="organization" name="organization" id="teamname"/>.shuttl.io
+	<h3>Tell us a little about your self </h3>
+	<p><input class="creation_input" type="text" placeholder="User Name" name="username" id="uname"/></p>
+	<p>
+		<input class="creation_input" type="text" placeholder="First Name" name="firstname" id = "fname"/>
+		<input class="creation_input" type="text" placeholder="Last Name" name="lastname" id= "lname"/>
+	</p>
+	<p>
+		<input class="creation_input" type="text" placeholder="Email Address" name="email" id="email"/>
+		<input class="creation_input" type="password" placeholder="Password" name="password" id="pwd"/>
+	</p>
+	<input type="submit" value="submit">
+	<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+<div class="spacer"></div>
+
+{% endblock %}

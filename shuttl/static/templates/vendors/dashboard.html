@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block innerNav %}
+    <div id="home-mobile">
+		<a href="/">Home</a>
+	</div>
+	<div>
+		<a href="{{ url_for('shuttl.settings') }}">Settings</a>
+	</div>
+{% endblock %}
+
+{%block content%}
+	<div class="main-content">
+		<h2>Organizations You Manage</h2>
+		<div class="organizations">
+	    	<shuttl-organizations></shuttl-organizations>
+    	</div>
+	</div>
+
+    <div class="messages">
+{#    	<ul>#}
+{#            {% for org in orgainzation %}#}
+{#            	<li>#}
+{#                    <a href="{{ org.sys_name }}.{{ reseller.url }}">#}
+{#                        {{ org.name }}#}
+{#                    </a> #}
+{#                </li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+    </div>
+    <div class="activity">
+{#    	<ul>#}
+{#            {% for org in orgainzation %}#}
+{#            	<li>#}
+{#                    <a href="{{ org.sys_name }}.{{ reseller.url }}">#}
+{#                        {{ org.name }}#}
+{#                    </a> #}
+{#                </li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+    </div>
+{% endblock %}

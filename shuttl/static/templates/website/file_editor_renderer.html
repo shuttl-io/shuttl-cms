@@ -1,0 +1,9 @@
+{% extends "website/base.html" %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+  <shuttl-editfile filetype="{{ file.fileType }}" fileid="{{ file.id }}">{{ content }}</shuttl-editfile>
+{% endblock %}

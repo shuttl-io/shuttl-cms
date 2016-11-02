@@ -1,0 +1,173 @@
+header#main-nav, header.internal {
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 4em;
+    font-family: 'Open Sans', sans-serif;
+    color: $white;
+    background-color: $darkblue;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+
+    @include phone() {
+        height: 0;
+    }
+    .nav-button {
+        z-index: 3;
+        position: absolute;
+        display: block;
+        top: 1em;
+        right: 1.5em;
+        width: 3em;
+        height: 2.5em;
+        opacity: 0;
+        cursor: pointer;
+        @include desktop() {
+            display: none;
+        }
+        &:checked {
+            & ~ .nav-right {
+                right: 0;
+            }
+            & ~ #hamburglar-spans{
+              position: fixed;
+              span:first-of-type{
+                background-color: white;
+                @include prefix(transform-origin, 0 0);
+                @include prefix(transform, rotate(45deg));
+              }
+              span:nth-of-type(2){
+                background: transparent;
+              }
+              span:last-of-type{
+                background-color: white;
+                @include prefix(transform-origin, 0 0);
+                @include prefix(transform, rotate(-45deg));
+              }
+            }
+        }
+    }
+    #hamburglar-spans {
+        z-index: 2;
+        position: absolute;
+        top: 1em;
+        right: 1.5em;
+        height: 3em;
+        width: 3em;
+        @include desktop() {
+            display: none;
+        }
+        span {
+            margin: 9px;
+            display: block;
+            $lineWidth: 2px;
+            $lineLength: 2em;
+            top: 10px;
+            width: $lineLength;
+            height: $lineWidth;
+            transition: all 2s ease;
+            @include prefix(transition, all .5s ease);
+            background-color: $darkgrey;
+        }
+    }
+    &.main-nav {
+        @include phone() {
+            height: 4em;
+        }
+        #hamburglar-spans {
+            span {
+                background-color: $lightgrey;
+            }
+        }
+    }
+    .nav-left {
+        padding-left: 2em;
+        padding-top: 1.125em;
+        nav {
+          a {
+            color: $white;
+            font-size: 1.125em;
+            text-decoration: none;
+          }
+          select {
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 1.25em;  
+          }
+        }
+        img {
+            height: 4em;
+            width: auto;
+            @include phone() {
+                display: none;
+            }
+        }
+    }
+    .nav-right {
+        padding-top: 1.25em;
+        @include phone {
+            height: 100%;
+            position: fixed;
+            right: -70%;
+            width: 70%;
+            @include prefix(transition, right .5s);
+            overflow: hidden;
+            background-color: $darkgrey;
+        }
+        nav {
+            @include prefix(flex, 1);
+            padding-right: 1em;
+            @include phone() {
+                padding-top: 2em;
+                margin-left: 1em;
+            }
+            #home-mobile{
+              @include desktop() {
+                display: none;
+              }
+            }
+            .nav-item {
+                display: inline-block;
+                position: relative;
+                .submenu {
+                  background-color: $darkblue;
+                  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30);
+                  border-radius: 3px;
+                  position: absolute;
+                  top: 3em;
+                  display: block;
+                  .files-wrapper {
+                    .submenu-items {
+                      display: block;
+                      a {
+                        display: block;
+                      }
+                    }
+                  }
+                }
+                a {
+                    color: $white;
+                    font-size: 1.125em;
+                    text-decoration: none;
+                    margin: 0.5em 1vw;
+                    padding: 0.5em 0.5vw;
+                    @include phone() {
+                        display: block;
+                        @include prefix(transition-property, none);
+                    }
+                }
+                @include phone() {
+                    width: 100%;
+                    border-bottom: solid 1px $lightgrey;
+                }
+            }
+        }
+    }
+}

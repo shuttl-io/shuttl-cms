@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+            {% block pageTitle %}
+                Shuttl
+            {% endblock %}
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}"/>
+				<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-83670049-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        {% block head %}
+
+        {% endblock %}
+	</head>
+
+	<body>
+        <div class="full-wrap">
+            {% block header %}
+            <header id="main-nav">
+                <div id="hamburglar-spans">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-right">
+                  <nav>
+                      {% block innerNav %}
+				    						<div id="home-mobile">
+				    							<a href="{{ url_for('shuttl.index')}}">Home</a>
+				    						</div>
+				    						<div class="nav-item">
+				    							<a href="{{ url_for('shuttlOrgs.login', organization='demo')}}">Try Our Demo!</a>
+				    						</div>
+				    						<div class="nav-item">
+				    							<a href="http://blog.shuttl.io">Blog</a>
+				    						</div>
+                      {% endblock %}
+                	</nav>
+                </div>
+                <div class="nav-left">
+                    <nav>
+        				<a href="{{ url_for('shuttl.index')}}">
+        					Home
+        				</a>
+                    </nav>
+                </div>
+            </header>
+            {% endblock %}
+
+    		{% block content %}
+
+    		{% endblock %}
+
+				</div>
+
+        {% block footer %}
+            <footer id="contact">
+                <div class="footer-logo">
+                    <h1>Shuttl</h1>
+                    <p>
+                        Contact us: <a href="mailto:hello@shuttl.io">hello@shuttl.io</a>
+                    </p>
+                    <p>&copy; 2016 Shuttl, LLC. All Rights Reserved</p>
+                </div>
+            </footer>
+        {% endblock %}
+
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="application/javascript" src="{{ url_for('static', filename='node_modules/ace-builds/src-noconflict/ace.js') }}"></script>
+        <script type="application/javascript" src="{{ url_for('static', filename='node_modules/tinymce/tinymce.min.js') }}"></script>
+        {%block bottom_js%}
+        {%endblock%}
+    	<script type="application/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+body {
+    background-color: $lightgrey;
+    .full-wrap {
+        @include flex-box();
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        nav {
+            @include flex-box();
+            flex-direction: row-reverse;
+            margin-bottom: 1em;
+            width: 80%;
+            @include desktop() {
+                width: 50em;
+            }
+            a {
+                font-size: 1.25em;
+                text-decoration: none;
+                color: $darkgrey;
+                &:visited {
+                    color: $darkgrey;
+                }
+            }
+        }
+        header {
+            color: $darkgrey;
+            width: 80%;
+            @include desktop() {
+                width: 50em;
+            }
+            @include flex-box();
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            margin-bottom: 1em;
+            h1 {
+                @include font-heavy();
+                font-size: 3em;
+                margin: 0.25em 0;
+            }
+            p {
+                margin-top: 0;
+                font-size: 1.5em;
+            }
+        }
+        .blog-posts {
+            @include font-heavy();
+            width: 80%;
+            @include desktop() {
+                width: 50em;
+            }
+            article {
+                background-color: $white;
+                box-shadow: 0 3px 2px rgba(0,0,0,0.15);
+                padding: 1em 2em 2em 2em;
+                margin-bottom: 2em;
+                .post-header {
+                    font-size: 0.75em;
+                    .post-title {
+                        font-size: 2em;
+                        padding-bottom: 0.625em;
+                        border-bottom: solid 0.2em $lightblue;
+                    }
+                    h3 {
+                        margin: 0;
+                        div {
+                            display: inline-block;
+                        }
+                    }
+                    .author {
+                        a {
+                            color: $lightgreen;
+                            text-decoration: none;
+                            margin-right: 1em;
+                            &:visited {
+                                color: $lightgreen;
+                            }
+                        }
+                    }
+                }
+                .read-more {
+                    text-align: right;
+                    a {
+                        text-decoration: none;
+                        color: $lightgreen;
+                        &:visited {
+                            color: $lightgreen;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

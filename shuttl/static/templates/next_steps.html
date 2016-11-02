@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{%block content%}
+	<h1>Welcome to Shuttl!</h1>
+    <h2>Here are the next steps to follow to start using Shuttl.</h2
+    <ol>
+    	<li>
+            <section class="steps" id="#one">
+				<h3>Get your domain name pointing to Shuttl</h3>
+                <div class="content">
+                    <p>There are a couple ways to do this. They are all easy and depends on how you want to do this:</p>
+                    <div class="ways">
+                        <ol>
+                            <li>
+                                <section class="steps inner">
+                                    <h4>Set up a CNAME to point a subdomain to Shuttl</h4>
+                                    <p>
+                                        CNAMES allow you to make an alias for a domain. This offers less control over the
+                                        way Shuttl is presented to your clients because it only works for subdomains. For
+                                        example, shuttl.{{ reseller.url }} is ok but {{ reseller.url }}/shuttl is not.
+                                    </p>
+                                    <p>
+                                        Create a new CNAME record with your registrar to point a subdomain of your choice
+                                        to vendors.shuttl.io.
+                                    </p>
+                                </section>
+                            </li>
+                            <li>
+                                <section class="steps inner">
+                                    <h4>Set up your server(s) as a proxy</h4>
+                                    <p>
+                                        This gives you more control over how Shuttl is presented to your clients. This
+                                        allows you to make a {{ reseller.url }}/shuttl URL. However, this does require
+                                        knowledge of server administration and access to your web server configuration
+                                        files.
+                                    </p>
+                                    <p>
+                                        There are still more ways to do this depending if you're using Nginx or Apache.
+                                    </p>
+                                    <div class="aside" id="nginx">
+                                        <h5>Nginx</h5>
+                                        <p>
+                                            First open the NGINX configuration file you want to modify. You will usually
+                                            need to open them as root. On Ubuntu Linux, the files are usually in the
+                                            /etc/nginx/sites-enabled directory. You'll want to modify the one that uses
+                                            affects your website. After you edit it, add these parameters to your
+                                            configuration file:
+                                            <pre>
+<code>
+	server {
+		...
+		location /subdir you want shuttl to be on {
+			proxy_pass       https://vendor.shuttl.io;
+			proxy_set_header Host            $host;
+		}
+		...
+	}
+</code>
+                                    		</pre>
+                                        </p>
+                                    </div>
+
+                                    <div class="aside" id="nginx">
+                                        <h5>Apache</h5>
+                                        <p>
+                                            Apache is a little more difficult to set up as a reverse proxy. The great guys
+                                            over at Digital Ocean made
+                                            <a href="https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension">
+                                                this great guide.
+                                            </a>
+                                            Be sure to follow this guide. The url to forward to is https://vendors.shuttl.io
+                                        </p>
+                                    </div>
+
+                                    <div class="aside" id="nginx">
+                                        <h5>Microsoft IIS</h5>
+                                        <p>
+                                            Here is a great guide to how to set up the proxy in IIS:
+                                            <a href="http://weblogs.asp.net/owscott/creating-a-reverse-proxy-with-url-rewrite-for-iis">
+                                                Setting up a reverse proxy in IIS
+                                            </a>
+                                            Be sure to follow this guide. The url is again to is https://vendors.shuttl.io
+                                        </p>
+                                    </div>
+                                </section>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+			</section>
+        </li>
+
+    	<li>
+            <section class="steps" id="#two">
+				<h3>Install Houston</h3>
+                <div class="content">
+                    <p>
+                        Houston is the command center for Shuttl. Houston allows you to create new organizations, create
+                        new websites, and sync your files with Shuttl all from your computer. You could also manage your
+                        Shuttl settings. If you don't want to use houston, you can always edit your files on Shuttl or
+                        you can use git to to deploy your templates.
+                    </p>
+                    <p>
+                        Installing Houston is really simple. Simply install Node and NPM and then run
+                        <code>npm install --global shuttl-houston</code>
+                    </p>
+                </div>
+			</section>
+        </li>
+
+    	<li>
+            <section class="steps" id="#three">
+				<h3>Upload your Branding, Set your pricing, and optionally upload storefront templates</h3>
+                <div class="content">
+                    <p>
+                        Because Shuttl is completely white labeled, you need to brand the webpage. This is simple to do.
+                        Just choose three colors, upload your logo, set the navigation links, and your pricing
+                        and you're done branding your store front.
+                    </p>
+                    <p>
+                        Want more control over what you're storefront looks like? Just upload some Shuttl templates, CSS,
+                        and JavaScript.
+                    </p>
+                </div>
+			</section>
+        </li>
+    </ol>
+{% endblock %}

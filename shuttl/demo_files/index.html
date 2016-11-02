@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Shuttl Blog</title>
+    <meta name="author" content="Shuttl">
+    <meta name="description" content="A blog from the developers of Shuttl">
+    <meta name="keywords" content="shuttl, cms">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% file 'style.css' %}" type="text/css">
+</head>
+<body>
+    <div class="full-wrap">
+        <nav>
+            <a href="http://shuttl.io">Shuttl.io</a>
+        </nav>
+        <header>
+            <h1>Shuttl Blog</h1>
+            <p>Little tidbits that we believe are important to share!</p>
+        </header>
+        <div class="blog-posts">
+            <article>
+                    <div class="post-header">
+                        <h2 class="post-title">The title of our blog post</h2>
+                        <h3><div class="author"><a href="https://github.com/nicoevergara">Nico Vergara</a><div class="date">9th September 2016</div></div>
+                    </div>
+                    <section>
+                        {% wysiwyg 'blog-content', 'Content for the blog post' %}
+                    </section>
+                    <div class="read-more"><a href="http://shuttl.io">Read more</a></div>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
