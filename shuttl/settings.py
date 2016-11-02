@@ -8,7 +8,7 @@ class Config(object):
     SECRET_KEY				= ''
     USERNAME 				= 'admin'
     PASSWORD 				= 'Paswword'
-    AESKEY					= 'o\xb32\xcab\x88\xc5\xb5\x13\x03\x891\x99\x87\r\xdeVL\x04\xd0\xb3L \xcd\xb3=B\x89\xfc\x16 ?'
+    AESKEY					= ''
     SQLALCHEMY_MIGRATE_REPO = os.path.join(BASE_DIR, 'db_repository')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_DIR = os.path.join(BASE_DIR, "media")
