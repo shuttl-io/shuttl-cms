@@ -1,0 +1,6 @@
+*.pyc
+*.pyo
+shuttl/static/js/internalMain.js
+shuttl/static/js/main.js
+npm_modules/
+*.log
