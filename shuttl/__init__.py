@@ -41,6 +41,7 @@ manager.add_command('db', MigrateCommand)
 
 from .Commands.FillDB import FillDB
 from .Commands.TestSuite import TestSuite
+from .Commands.Add import Add
 from .Commands.DemoFiller import DemoFiller
 from .Commands.ResetPublishers import ResetPublishers
 from .Commands.UploadToS3 import UploadS3
@@ -49,6 +50,7 @@ from .Templates.Tags import load_tags
 # load_tags(app.jinja_env)
 
 manager.add_command('test', TestSuite())
+manager.add_command('add', Add())
 
 manager.add_command('filldb', FillDB())
 

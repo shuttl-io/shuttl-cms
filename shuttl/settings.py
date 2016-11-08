@@ -33,6 +33,7 @@ class Config(object):
     GITHUB_CLIENT_SECRET = ""
     AWS_PUBLIC = ""
     AWS_PRIVATE = ""
+    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(Config.BASE_DIR)
     pass
 
 class TestConfig(Config):
@@ -43,7 +44,7 @@ class TestConfig(Config):
     SHOULD_SKIP = True
     SERVER_NAME = "shuttl.com:5000"
     UPLOAD_DIR = os.path.join(Config.BASE_DIR, "test-media")
-    SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl_build".format(Config.DB_PASSWORD)
+    # SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl_build".format(Config.DB_PASSWORD)
     pass
 
 class LocalTestConfig(Config):
@@ -53,7 +54,7 @@ class LocalTestConfig(Config):
     TESTING = True
     SERVER_NAME = "shuttl.com:5000"
     UPLOAD_DIR = os.path.join(Config.BASE_DIR, "test-media")
-    SQLALCHEMY_DATABASE_URI = "postgres:///shuttl_test"
+    # SQLALCHEMY_DATABASE_URI = "postgres:///shuttl_test"
 
     GITHUB_CLIENT_ID = ""
     GITHUB_CLIENT_SECRET = ""
@@ -62,14 +63,14 @@ class LocalTestConfig(Config):
 class DevelopmentConfig(Config):
     DEBUG = True
     SERVER_NAME = "shuttl.com:5000"
-    SQLALCHEMY_DATABASE_URI = "postgres://shuttl_db@localhost/shuttl_dev"
+    # SQLALCHEMY_DATABASE_URI = "postgres://shuttl_db@localhost/shuttl_dev"
     pass
 
 class LiveDevelopmentConfig(Config):
     SERVER_NAME = "shuttl.io"
-    GITHUB_CLIENT_ID = "
-    GITHUB_CLIENT_SECRET = "
-    SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl".format(Config.DB_PASSWORD)
+    GITHUB_CLIENT_ID = ""
+    GITHUB_CLIENT_SECRET = ""
+    # SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl".format(Config.DB_PASSWORD)
     DEBUG = True
     LOG_PATH = "/var/log/shuttl"
     PID_PATH = "/var/run"
