@@ -33,7 +33,7 @@ class Config(object):
     GITHUB_CLIENT_SECRET = ""
     AWS_PUBLIC = ""
     AWS_PRIVATE = ""
-    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(Config.BASE_DIR)
+    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(BASE_DIR)
     pass
 
 class TestConfig(Config):
