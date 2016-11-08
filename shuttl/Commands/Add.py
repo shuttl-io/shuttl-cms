@@ -39,7 +39,7 @@ class Add(Command):
         userName = input("Please enter a user name:")
         password = getpass.getpass()
         user = User.Create(
-            organization=organization, 
+            organization=orginization, 
             reseller=reseller, 
             username=userName, 
             email=userEmail, 
