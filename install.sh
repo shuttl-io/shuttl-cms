@@ -17,7 +17,7 @@ python run.py db init
 python run.py db migrate
 python run.py db upgrade
 
-cd shuttl/static/
+cd $SHUTTL_DIR/shuttl/static/
 
 npm install
 npm run build
@@ -25,6 +25,7 @@ npm run buildInternal
 
 sudo sh -c "echo '127.0.0.1       shuttl.local' >> /etc/hosts"
 echo $(pwd)
+cd $SHUTTL_DIR
 python run.py add --organization shuttl
 sudo sh -c "echo '127.0.0.1       shuttl.shuttl.local' >> /etc/hosts"
 echo "Default organization is shuttl. run run.sh and then go to shuttl.shuttl.local"
