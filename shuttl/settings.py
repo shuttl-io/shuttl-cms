@@ -2,6 +2,7 @@ import os
 import datetime
 
 _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 class Config(object):
     BASE_DIR        		= _BASE_DIR
     DEBUG					= False
@@ -34,7 +35,7 @@ class Config(object):
     GITHUB_CLIENT_SECRET = ""
     AWS_PUBLIC = ""
     AWS_PRIVATE = ""
-    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(_BASE_DIR)
+    SQLALCHEMY_DATABASE_URI = "sqlite:///{0}/database.db".format(_BASE_DIR)
     pass
 
 class TestConfig(Config):

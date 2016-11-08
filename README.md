@@ -4,7 +4,8 @@ This is a great CMS. Everyone says so.
 
 ## Installation
 To install (Right now this only works on mac osx, maybe linux as well) run:
-`source <(curl -s https://raw.githubusercontent.com/shuttl-io/shuttl/master/install.sh)`
+
+`curl -s https://raw.githubusercontent.com/shuttl-io/shuttl/master/install.sh | sh`
 
 ## Usage
 
