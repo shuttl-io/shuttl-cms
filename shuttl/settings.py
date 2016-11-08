@@ -1,8 +1,9 @@
 import os
 import datetime
 
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class Config(object):
-    BASE_DIR        		= os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    BASE_DIR        		= _BASE_DIR
     DEBUG					= False
     TESTING                 = False
     SECRET_KEY				= ''
@@ -33,7 +34,7 @@ class Config(object):
     GITHUB_CLIENT_SECRET = ""
     AWS_PUBLIC = ""
     AWS_PRIVATE = ""
-    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(BASE_DIR)
+    SQLALCHEMY_DATABASE_URI = "sqlite://{0}/database.db".format(_BASE_DIR)
     pass
 
 class TestConfig(Config):
@@ -80,7 +81,7 @@ class PublishConfig(Config):
     SERVER_NAME = "shuttl.io"
     GITHUB_CLIENT_ID = ""
     GITHUB_CLIENT_SECRET = ""
-    SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl".format(Config.DB_PASSWORD)
+    #SQLALCHEMY_DATABASE_URI = "postgres://shuttl:{0}@162.243.83.127/shuttl".format(Config.DB_PASSWORD)
     LOG_PATH = "/var/log/shuttl"
     PID_PATH = "/var/run/shuttl"
     pass
