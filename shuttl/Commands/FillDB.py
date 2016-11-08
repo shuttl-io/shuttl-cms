@@ -12,8 +12,6 @@ class FillDB(Command):
 
     def run(self):
         try:
-            BaseTest.clear_data(shuttl.db.session)
-
             reseller = Reseller.Create(name='shuttl', _url='shuttl.local')
             # organization = Organization.Create(name="demo", reseller=reseller)
             # User.Create(organization=organization, reseller=reseller, username="nicoevergara", email="nico@shuttl.io", password="password", isActive=True)
