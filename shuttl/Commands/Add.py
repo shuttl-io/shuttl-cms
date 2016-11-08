@@ -33,7 +33,7 @@ class Add(Command):
         pass
 
     def _makeOrg(self, orgName):
-        reseller = Reseller.query.filter(Reseller.name=="shuttl")
+        reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
         orginization = Organization.Create(name=orgName, reseller=reseller)
         userEmail = input("Please enter a user email:")
         userName = input("Please enter a user name:")
@@ -58,7 +58,7 @@ class Add(Command):
         if userEmail is None:
             userEmail = input("Please enter a user email:")
             pass
-        reseller = Reseller.query.filter(Reseller.name=="shuttl")
+        reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
         organization = Organization.query.filter(Organization.name==orgName)
         if organization is None:
             print ("That organization does not exsist. Please create it using run.py add --organization <orgName>")

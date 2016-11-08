@@ -26,6 +26,7 @@ npm run buildInternal
 sudo sh -c "echo '127.0.0.1       shuttl.local' >> /etc/hosts"
 echo $(pwd)
 cd $SHUTTL_DIR
+python run.py filldb
 python run.py add --organization shuttl
 sudo sh -c "echo '127.0.0.1       shuttl.shuttl.local' >> /etc/hosts"
 echo "Default organization is shuttl. run run.sh and then go to shuttl.shuttl.local"

@@ -14,11 +14,11 @@ class FillDB(Command):
         try:
             BaseTest.clear_data(shuttl.db.session)
 
-            reseller = Reseller.Create(name='shuttl', _url='shuttl.com')
-            organization = Organization.Create(name="demo", reseller=reseller)
-            User.Create(organization=organization, reseller=reseller, username="nicoevergara", email="nico@shuttl.io", password="password", isActive=True)
-            User.Create(organization=organization, reseller=reseller, username="gabemorcote", email="gabe@shuttl.io", password="password", isActive=True)
-            User.Create(organization=organization, reseller=reseller, username="yosephradding", email="yoseph@shuttl.io", password="password", isActive=True)
-            Website.Create(name="mysite", organization=organization)
+            reseller = Reseller.Create(name='shuttl', _url='shuttl.local')
+            # organization = Organization.Create(name="demo", reseller=reseller)
+            # User.Create(organization=organization, reseller=reseller, username="nicoevergara", email="nico@shuttl.io", password="password", isActive=True)
+            # User.Create(organization=organization, reseller=reseller, username="gabemorcote", email="gabe@shuttl.io", password="password", isActive=True)
+            # User.Create(organization=organization, reseller=reseller, username="yosephradding", email="yoseph@shuttl.io", password="password", isActive=True)
+            # Website.Create(name="mysite", organization=organization)
         except Exception as e:
             app.logger.error('Clear your database and migrate')
