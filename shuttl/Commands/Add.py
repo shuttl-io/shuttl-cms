@@ -34,12 +34,12 @@ class Add(Command):
 
     def _makeOrg(self, orgName):
         reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
-        orginization = Organization.Create(name=orgName, reseller=reseller)
+        organization = Organization.Create(name=orgName, reseller=reseller)
         userEmail = input("Please enter a user email:")
         userName = input("Please enter a user name:")
         password = getpass.getpass()
         user = User.Create(
-            organization=orginization, 
+            organization=organization, 
             reseller=reseller, 
             username=userName, 
             email=userEmail, 

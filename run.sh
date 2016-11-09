@@ -1,10 +1,9 @@
 #!/bin/bash
 CUR_DIR=$(pwd)
-
-cd $HOME/.shuttl/
-
+SHUTTL_PATH=$HOME/.shuttl/
+cd $SHUTTL_PATH
 source shuttlVenv/bin/activate
-
+export PYTHONPATH="$SHUTTL_PATH:$PYTHONPATH"
 python daemons/PublishWorker.py start
 python run.py runserver
 python daemons/PublishWorker.py stop

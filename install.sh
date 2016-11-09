@@ -18,6 +18,7 @@ sudo sh -c "echo '127.0.0.1       shuttl.local' >> /etc/hosts"
 echo $(pwd)
 cd $SHUTTL_DIR
 python run.py filldb
+read -t 1 -n 10000000 discard 
 python run.py add --organization shuttl
 echo "Default organization is shuttl. run run.sh and then go to shuttl.shuttl.local"
 echo "source $SHUTTL_DIR/functions.sh" >> $HOME/.bash_profile 
