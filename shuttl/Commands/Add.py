@@ -2,6 +2,7 @@ import os
 from flask.ext.script.commands import Command, Option
 import sys
 import getpass
+import termios
 
 from shuttl import app
 from shuttl.Models.User import User
@@ -33,6 +34,7 @@ class Add(Command):
         pass
 
     def _makeOrg(self, orgName):
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
         orginization = Organization.Create(name=orgName, reseller=reseller)
         userEmail = input("Please enter a user email:")
@@ -52,6 +54,7 @@ class Add(Command):
         pass
 
     def _makeUser(self, orgName, userEmail):
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         if orgName is None:
             print ("Organization Name:")
             pass 
@@ -79,6 +82,7 @@ class Add(Command):
         pass
 
     def _makeTransport(self, transport, website):
+        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         if transport is None or transport not in {"git", "s3"}:
             print ("Please provide a transport protocol (git or s3) using -t or --transport!")
             return
