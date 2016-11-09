@@ -2,7 +2,6 @@ import os
 from flask.ext.script.commands import Command, Option
 import sys
 import getpass
-import termios
 
 from shuttl import app
 from shuttl.Models.User import User
@@ -34,7 +33,6 @@ class Add(Command):
         pass
 
     def _makeOrg(self, orgName):
-        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
         orginization = Organization.Create(name=orgName, reseller=reseller)
         userEmail = input("Please enter a user email:")
@@ -48,13 +46,19 @@ class Add(Command):
             password=password, 
             isActive=True
         )
+
+        command = """
+        sudo sh -c "echo '127.0.0.1       {0}.shuttl.local' >> /etc/hosts"
+        """.format(organization.name)
+        print("The next command may ask you for your SUDO password. Please enter it if it does!")
+        os.system(command)
+        print("Ok if anything else asks you for your password, it's not us!")
         user.save()
         organization.save()
         reseller.save()
         pass
 
     def _makeUser(self, orgName, userEmail):
-        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         if orgName is None:
             print ("Organization Name:")
             pass 
@@ -82,7 +86,6 @@ class Add(Command):
         pass
 
     def _makeTransport(self, transport, website):
-        termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         if transport is None or transport not in {"git", "s3"}:
             print ("Please provide a transport protocol (git or s3) using -t or --transport!")
             return
