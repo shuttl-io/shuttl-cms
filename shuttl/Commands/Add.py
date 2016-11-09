@@ -60,13 +60,13 @@ class Add(Command):
 
     def _makeUser(self, orgName, userEmail):
         if orgName is None:
-            print ("Organization Name:")
+            orgName = input ("Organization Name:")
             pass 
         if userEmail is None:
             userEmail = input("Please enter a user email:")
             pass
         reseller = Reseller.query.filter(Reseller.name=="shuttl").first()
-        organization = Organization.query.filter(Organization.name==orgName)
+        organization = Organization.query.filter(Organization.name==orgName).first()
         if organization is None:
             print ("That organization does not exsist. Please create it using run.py add --organization <orgName>")
             return
@@ -98,7 +98,10 @@ class Add(Command):
             if website is None:
                 website = input("Website Name:")
                 pass
-            website = Website.query.filter(Website.name==website)
+            website = Website.query.filter(Website.name==website).first()
+            if website is None:
+                print("Website doesn't exsist?")
+                return
             transport = GitPublisher.Create(
                 privateKeyPath=privateKeyPath,
                 website=website,
@@ -117,7 +120,10 @@ class Add(Command):
             if website is None:
                 website = input("Website Name:")
                 pass
-            website = Website.query.filter(Website.name==website)
+            website = Website.query.filter(Website.name==website).first()
+            if website is None:
+                print("Website doesn't exsist?")
+                return
             transport = S3Publisher.Create(
                 bucketName=bucketName,
                 website=website,
