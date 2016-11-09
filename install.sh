@@ -14,6 +14,8 @@ cd $SHUTTL_DIR/shuttl/static/
 npm install
 npm run build
 npm run buildInternal
+cd sass
+sass style.scss:$SHUTTL_DIR/shuttl/static/css/style.css
 sudo sh -c "echo '127.0.0.1       shuttl.local' >> /etc/hosts"
 echo $(pwd)
 cd $SHUTTL_DIR

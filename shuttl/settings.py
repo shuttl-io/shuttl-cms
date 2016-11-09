@@ -7,7 +7,8 @@ class Config(object):
     BASE_DIR        		= _BASE_DIR
     DEBUG					= False
     TESTING                 = False
-    SECRET_KEY				= ''
+    ## You should cange the secret key when you install
+    SECRET_KEY				= '^S.vrFd5~z8n)4+{?/C3g`Ju&Zua$9/%ECs+,#^S}~tgznYHvynQ4Vg.9!U]P,:b'
     USERNAME 				= 'admin'
     PASSWORD 				= 'Paswword'
     AESKEY					= ''
@@ -64,7 +65,7 @@ class LocalTestConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SERVER_NAME = "shuttl.com:5000"
+    SERVER_NAME = "shuttl.local:5000"
     # SQLALCHEMY_DATABASE_URI = "postgres://shuttl_db@localhost/shuttl_dev"
     pass
 
