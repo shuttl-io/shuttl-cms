@@ -6,7 +6,7 @@ cd $SHUTTL_DIR
 mkdir -p media/{templates,css,js,generic}
 pip install virtualenv
 virtualenv --python=$(which python3) shuttlVenv
-source shuttlVenv/bin/activate
+. shuttlVenv/bin/activate
 pip install -r requirements.txt
 python run.py db init
 python run.py db migrate
@@ -25,5 +25,5 @@ read -t 1 -n 10000000 discard
 python run.py add --organization shuttl
 echo "Default organization is shuttl. run run.sh and then go to shuttl.shuttl.local"
 echo "source $SHUTTL_DIR/functions.sh" >> $HOME/.bash_profile 
-source $HOME/.bash_profile
+. $HOME/.bash_profile
 cd $CUR_DIR
