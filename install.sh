@@ -3,6 +3,7 @@ CUR_DIR=$(pwd)
 SHUTTL_DIR=$HOME/.shuttl
 git clone https://github.com/shuttl-io/shuttl.git $SHUTTL_DIR
 cd $SHUTTL_DIR
+mkdir -p media/{templates,css,js,generic}
 pip install virtualenv
 virtualenv --python=$(which python3) shuttlVenv
 source shuttlVenv/bin/activate
