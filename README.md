@@ -20,3 +20,8 @@ run `shuttl add --user [<user name> --organization <organization name>]`
 ### To make a new transport:
 run `shuttl add --transport <protocol> [--website <website name>]`
 *Protocol must be git or S3*
+
+### To update Shuttl:
+run
+
+`shuttl update`
